@@ -12,16 +12,9 @@
 
 @end
 
-#define FBDownardBatAcceleration 15
-#define FBHoleHeight 130
-#define FBSidewaysVelocity -120
-#define FBPipeDelay 1.8
-
-#define FBBirdStartingFrame CGRectMake(100, CGRectGetMidY([[self view] frame])-25, 50, 50)
-
-
 @implementation FBViewController
 
+#define FBBirdStartingFrame CGRectMake(100, CGRectGetMidY([[self view] frame])-25, 50, 50)
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -53,6 +46,8 @@
     [self startTimers];
 }
 
+#define FBPipeDelay 1.8
+
 -(void)startTimers {
     CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
     [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
@@ -61,6 +56,9 @@
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:FBPipeDelay target:self selector:@selector(addNewBar:) userInfo:nil repeats:YES];
     [self setBlockTimer:timer];
 }
+
+#define FBDownardBatAcceleration 15
+#define FBSidewaysVelocity -120
 
 -(void)tick:(CADisplayLink *)link {
     self.batVelocity += [link duration]*FBDownardBatAcceleration;
