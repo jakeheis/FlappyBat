@@ -28,8 +28,6 @@
 		EF3D456418AB18CE00C65E70 /* pipe_upside_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456318AB18CE00C65E70 /* pipe_upside_down.png */; };
 		EF3D456618AB197000C65E70 /* large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456518AB197000C65E70 /* large.jpg */; };
 		EF3D456818AB19DC00C65E70 /* pipe.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456718AB19DC00C65E70 /* pipe.png */; };
-		EF3D456A18AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456918AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg */; };
-		EF3D456C18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456B18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +67,6 @@
 		EF3D456318AB18CE00C65E70 /* pipe_upside_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe_upside_down.png; sourceTree = "<group>"; };
 		EF3D456518AB197000C65E70 /* large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = large.jpg; sourceTree = "<group>"; };
 		EF3D456718AB19DC00C65E70 /* pipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe.png; sourceTree = "<group>"; };
-		EF3D456918AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5241619844_74b6e3fbc5_o.jpg; sourceTree = "<group>"; };
-		EF3D456B18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +139,6 @@
 		EF3D452918AB0E8200C65E70 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EF3D456918AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg */,
-				EF3D456B18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg */,
 				EF3D456318AB18CE00C65E70 /* pipe_upside_down.png */,
 				EF3D456718AB19DC00C65E70 /* pipe.png */,
 				EF3D455718AB162F00C65E70 /* bat0.png */,
@@ -256,7 +250,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF3D456A18AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg in Resources */,
 				EF3D453B18AB0E8200C65E70 /* Images.xcassets in Resources */,
 				EF3D456818AB19DC00C65E70 /* pipe.png in Resources */,
 				EF3D455E18AB163000C65E70 /* bat3.png in Resources */,
@@ -266,7 +259,6 @@
 				EF3D455D18AB163000C65E70 /* bat2.png in Resources */,
 				EF3D452D18AB0E8200C65E70 /* InfoPlist.strings in Resources */,
 				EF3D455B18AB163000C65E70 /* bat0.png in Resources */,
-				EF3D456C18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg in Resources */,
 				EF3D453618AB0E8200C65E70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +489,7 @@
 				EF3D455318AB0E8200C65E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF3D455418AB0E8200C65E70 /* Build configuration list for PBXNativeTarget "FlappyBatTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +498,7 @@
 				EF3D455618AB0E8200C65E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

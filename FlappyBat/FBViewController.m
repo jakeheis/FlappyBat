@@ -12,7 +12,6 @@
 
 @end
 
-//#define FBUpwardBatVelocity -5.5
 #define FBDownardBatAcceleration 15
 #define FBHoleHeight 130
 #define FBSidewaysVelocity -120
@@ -20,7 +19,9 @@
 
 #define FBBirdStartingFrame CGRectMake(100, CGRectGetMidY([[self view] frame])-25, 50, 50)
 
+
 @implementation FBViewController
+
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -29,14 +30,6 @@
     [background setImage:[UIImage imageNamed:@"large.jpg"]];
     [background setContentMode:UIViewContentModeScaleAspectFill];
     [[self view] addSubview:background];
-
-    UILabel *startLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMidY([[self view] frame])-90, CGRectGetWidth([[self view] frame]), 50)];
-    [startLabel setText:@"Tap to start!"];
-    [startLabel setTextColor:[UIColor whiteColor]];
-    [startLabel setFont:[UIFont systemFontOfSize:20.0f]];
-    [startLabel setTextAlignment:NSTextAlignmentCenter];
-    [[self view] addSubview:startLabel];
-    [self setStartLabel:startLabel];
     
     UIImageView *bird = [[UIImageView alloc] initWithFrame:FBBirdStartingFrame];
     [bird setContentMode:UIViewContentModeScaleAspectFit];
@@ -56,6 +49,8 @@
     [self setCounterLabel:counter];
     
     [self setBlocks:[NSMutableArray array]];
+    
+    [self startTimers];
 }
 
 -(void)startTimers {
@@ -81,7 +76,7 @@
             break;
         }
         
-        if ([block tag] == 0 && CGRectGetMinX([block frame]) > CGRectGetMinX([[self bat] frame]) && CGRectGetMinX([block frame]) < CGRectGetMaxX([[self bat] frame])) {
+        if ([block tag] == 0 && CGRectGetMinX([block frame]) < CGRectGetMinX([[self bat] frame])) {
             [block setTag:1];
             [self incrementCount];
         }
@@ -99,45 +94,45 @@
     }
 }
 
--(void)incrementCount {//NSStrokeColorAttributeName
+-(void)incrementCount {
     NSInteger current = [[[[self counterLabel] attributedText] string] intValue];
-    NSAttributedString *attrib = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i", current+1] attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSStrokeColorAttributeName: [UIColor blackColor]}];
-
+    NSDictionary *attributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSStrokeColorAttributeName: [UIColor blackColor],
+                                 NSStrokeWidthAttributeName: @(-2)};
+    NSAttributedString *attrib = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%i", current+1] attributes:attributes];
+    
     [[self counterLabel] setAttributedText:attrib];
 }
 
+#define FBHoleHeight 130
+#define FBTopAndBottomPadding 50
+
 -(void)addNewBar:(NSTimer *)timer {
-    NSInteger topAndBottomPadding = 50;
-    NSInteger possibleHoleTops = CGRectGetHeight([[self view] frame])-FBHoleHeight-2*topAndBottomPadding;
-    NSInteger middlePoint = arc4random()%possibleHoleTops + topAndBottomPadding;
+    NSInteger possibleHoleLocationRange = CGRectGetHeight([[self view] frame])-FBHoleHeight-2*FBTopAndBottomPadding;
+    NSInteger holeTop = arc4random()%possibleHoleLocationRange + FBTopAndBottomPadding;
     
-    UIImageView *newTopBar = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth([[self view] frame]), 0, 50, middlePoint)];
+    UIImageView *newTopBar = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth([[self view] frame]), 0, 50, holeTop)];
     [newTopBar setImage:[[UIImage imageNamed:@"pipe_upside_down.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 20, 0)]];
     [newTopBar setTag:1];
     
-    CGFloat bottomTop = middlePoint+FBHoleHeight;
-    UIImageView *newBottomBar = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth([[self view] frame]), bottomTop, 50, CGRectGetHeight([[self view] frame])-bottomTop)];
+    CGFloat holeBottom = holeTop+FBHoleHeight;
+    UIImageView *newBottomBar = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth([[self view] frame]), holeBottom, 50, CGRectGetHeight([[self view] frame])-holeBottom)];
     [newBottomBar setImage:[[UIImage imageNamed:@"pipe.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 0, 0, 0)]];
     
     [[self view] insertSubview:newTopBar belowSubview:[self counterLabel]];
     [[self view] insertSubview:newBottomBar belowSubview:[self counterLabel]];
-
+    
     [[self blocks] addObject:newTopBar];
     [[self blocks] addObject:newBottomBar];
 }
 
+#define FBTapUpwardBatVelocity -5.5
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (![[self startLabel] isHidden]) {
-        [[self startLabel] setHidden:YES];
-        [self startTimers];
-    }
-    
-    [self setBatVelocity:FBUpwardBatVelocity];
+    [self setBatVelocity:FBTapUpwardBatVelocity];
 }
 
 -(void)failed {
-    [[self counterLabel] setAttributedText:nil];
-    
     [[self blockTimer] invalidate];
     [self setBlockTimer:nil];
     
@@ -148,6 +143,8 @@
 }
 
 -(void)startOver {
+    [[self counterLabel] setAttributedText:nil];
+    
     for (UIView *block in [self blocks]) {
         [block removeFromSuperview];
     }
@@ -155,7 +152,9 @@
     
     [[self bat] setFrame:FBBirdStartingFrame];
     
-    [[self startLabel] setHidden:NO];
+    [self setBatVelocity:0];
+    
+    [self startTimers];
 }
 
 - (void)didReceiveMemoryWarning
