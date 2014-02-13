@@ -12,9 +12,15 @@
 
 @end
 
-@implementation FBViewController
+#define FBUpwardBatVelocity -5.5
+#define FBDownardBatAcceleration 15
+#define FBHoleHeight 130
+#define FBSidewaysVelocity -120
+#define FBPipeDelay 1.8
 
 #define FBBirdStartingFrame CGRectMake(100, CGRectGetMidY([[self view] frame])-25, 50, 50)
+
+@implementation FBViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +29,14 @@
     [background setImage:[UIImage imageNamed:@"large.jpg"]];
     [background setContentMode:UIViewContentModeScaleAspectFill];
     [[self view] addSubview:background];
+    
+    UILabel *startLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMidY([[self view] frame])-90, CGRectGetWidth([[self view] frame]), 50)];
+    [startLabel setText:@"Tap to start!"];
+    [startLabel setTextColor:[UIColor whiteColor]];
+    [startLabel setFont:[UIFont systemFontOfSize:20.0f]];
+    [startLabel setTextAlignment:NSTextAlignmentCenter];
+    [[self view] addSubview:startLabel];
+    [self setStartLabel:startLabel];
     
     UIImageView *bird = [[UIImageView alloc] initWithFrame:FBBirdStartingFrame];
     [bird setContentMode:UIViewContentModeScaleAspectFit];
@@ -42,11 +56,8 @@
     [self setCounterLabel:counter];
     
     [self setBlocks:[NSMutableArray array]];
-    
-    [self startTimers];
 }
 
-#define FBPipeDelay 1.8
 
 -(void)startTimers {
     CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
@@ -56,9 +67,6 @@
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:FBPipeDelay target:self selector:@selector(addNewBar:) userInfo:nil repeats:YES];
     [self setBlockTimer:timer];
 }
-
-#define FBDownardBatAcceleration 15
-#define FBSidewaysVelocity -120
 
 -(void)tick:(CADisplayLink *)link {
     self.batVelocity += [link duration]*FBDownardBatAcceleration;
@@ -127,6 +135,11 @@
 #define FBTapUpwardBatVelocity -5.5
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![[self startLabel] isHidden]) {
+        [[self startLabel] setHidden:YES];
+        [self startTimers];
+    }
+    
     [self setBatVelocity:FBTapUpwardBatVelocity];
 }
 
@@ -152,7 +165,7 @@
     
     [self setBatVelocity:0];
     
-    [self startTimers];
+    [[self startLabel] setHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning
