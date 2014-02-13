@@ -21,6 +21,15 @@
 		EF3D454418AB0E8200C65E70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3D452618AB0E8200C65E70 /* UIKit.framework */; };
 		EF3D454C18AB0E8200C65E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF3D454A18AB0E8200C65E70 /* InfoPlist.strings */; };
 		EF3D454E18AB0E8200C65E70 /* FlappyBatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3D454D18AB0E8200C65E70 /* FlappyBatTests.m */; };
+		EF3D455B18AB163000C65E70 /* bat0.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D455718AB162F00C65E70 /* bat0.png */; };
+		EF3D455C18AB163000C65E70 /* bat1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D455818AB163000C65E70 /* bat1.png */; };
+		EF3D455D18AB163000C65E70 /* bat2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D455918AB163000C65E70 /* bat2.png */; };
+		EF3D455E18AB163000C65E70 /* bat3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D455A18AB163000C65E70 /* bat3.png */; };
+		EF3D456418AB18CE00C65E70 /* pipe_upside_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456318AB18CE00C65E70 /* pipe_upside_down.png */; };
+		EF3D456618AB197000C65E70 /* large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456518AB197000C65E70 /* large.jpg */; };
+		EF3D456818AB19DC00C65E70 /* pipe.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456718AB19DC00C65E70 /* pipe.png */; };
+		EF3D456A18AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456918AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg */; };
+		EF3D456C18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3D456B18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,15 @@
 		EF3D454918AB0E8200C65E70 /* FlappyBatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlappyBatTests-Info.plist"; sourceTree = "<group>"; };
 		EF3D454B18AB0E8200C65E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EF3D454D18AB0E8200C65E70 /* FlappyBatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlappyBatTests.m; sourceTree = "<group>"; };
+		EF3D455718AB162F00C65E70 /* bat0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat0.png; sourceTree = "<group>"; };
+		EF3D455818AB163000C65E70 /* bat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat1.png; sourceTree = "<group>"; };
+		EF3D455918AB163000C65E70 /* bat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat2.png; sourceTree = "<group>"; };
+		EF3D455A18AB163000C65E70 /* bat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat3.png; sourceTree = "<group>"; };
+		EF3D456318AB18CE00C65E70 /* pipe_upside_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe_upside_down.png; sourceTree = "<group>"; };
+		EF3D456518AB197000C65E70 /* large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = large.jpg; sourceTree = "<group>"; };
+		EF3D456718AB19DC00C65E70 /* pipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe.png; sourceTree = "<group>"; };
+		EF3D456918AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5241619844_74b6e3fbc5_o.jpg; sourceTree = "<group>"; };
+		EF3D456B18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +135,6 @@
 				EF3D453418AB0E8200C65E70 /* Main.storyboard */,
 				EF3D453718AB0E8200C65E70 /* FBViewController.h */,
 				EF3D453818AB0E8200C65E70 /* FBViewController.m */,
-				EF3D453A18AB0E8200C65E70 /* Images.xcassets */,
 				EF3D452918AB0E8200C65E70 /* Supporting Files */,
 			);
 			path = FlappyBat;
@@ -126,6 +143,16 @@
 		EF3D452918AB0E8200C65E70 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF3D456918AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg */,
+				EF3D456B18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg */,
+				EF3D456318AB18CE00C65E70 /* pipe_upside_down.png */,
+				EF3D456718AB19DC00C65E70 /* pipe.png */,
+				EF3D455718AB162F00C65E70 /* bat0.png */,
+				EF3D455818AB163000C65E70 /* bat1.png */,
+				EF3D455918AB163000C65E70 /* bat2.png */,
+				EF3D455A18AB163000C65E70 /* bat3.png */,
+				EF3D456518AB197000C65E70 /* large.jpg */,
+				EF3D453A18AB0E8200C65E70 /* Images.xcassets */,
 				EF3D452A18AB0E8200C65E70 /* FlappyBat-Info.plist */,
 				EF3D452B18AB0E8200C65E70 /* InfoPlist.strings */,
 				EF3D452E18AB0E8200C65E70 /* main.m */,
@@ -229,8 +256,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3D456A18AB19FA00C65E70 /* 5241619844_74b6e3fbc5_o.jpg in Resources */,
 				EF3D453B18AB0E8200C65E70 /* Images.xcassets in Resources */,
+				EF3D456818AB19DC00C65E70 /* pipe.png in Resources */,
+				EF3D455E18AB163000C65E70 /* bat3.png in Resources */,
+				EF3D455C18AB163000C65E70 /* bat1.png in Resources */,
+				EF3D456418AB18CE00C65E70 /* pipe_upside_down.png in Resources */,
+				EF3D456618AB197000C65E70 /* large.jpg in Resources */,
+				EF3D455D18AB163000C65E70 /* bat2.png in Resources */,
 				EF3D452D18AB0E8200C65E70 /* InfoPlist.strings in Resources */,
+				EF3D455B18AB163000C65E70 /* bat0.png in Resources */,
+				EF3D456C18AB1A6B00C65E70 /* gotham_city_vectorial_sketch_by_solid_snake92-d59ssvr.jpg in Resources */,
 				EF3D453618AB0E8200C65E70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
